@@ -1,38 +1,46 @@
-create table if not exists apartamento(
-	codapartamento int AUTO_INCREMENT primary key,
-    nome varchar(80) not null,
-    localizacao varchar(80) not null,
-    tamanho varchar(10) not null,
-    quartos int not null,
-    banheiros int not null,
-    estacionamento int not null,
-    pet boolean not null,
-    andar varchar(10) not null,
-    preco varchar(80) not null
-);
-create table if not exists terreno(
-	codterreno int AUTO_INCREMENT primary key,
-    nome varchar(80) not null,
-    localizacao varchar(80) not null,
-    extensao varchar(10) not null,
-    preco varchar(80) not null
-);
-create table if not exists casa(
-	codapartamento int AUTO_INCREMENT primary key,
-    nome varchar(80) not null,
-    localizacao varchar(80) not null,
-    tamanho varchar(10) not null,
-    quartos int not null,
-    banheiros int not null,
-    estacionamento int not null,
-    pet boolean not null,
-    preco varchar(80) not null
+CREATE TABLE IF NOT EXISTS apartamento(
+    codapartamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(80) NOT NULL,
+    descricao TEXT NOT NULL,
+    localizacao VARCHAR(80) NOT NULL,
+    tamanho VARCHAR(10) NOT NULL,
+    quartos INT NOT NULL,
+    banheiros INT NOT NULL,
+    estacionamento INT NOT NULL,
+    pet BOOLEAN NOT NULL,
+    andar VARCHAR(10) NOT NULL,
+    preco VARCHAR(80) NOT NULL,
+    foto VARCHAR(255) DEFAULT NULL
 );
 
-create table if not exists conta(
-	codconta int AUTO_INCREMENT primary key,
-    usuario varchar(80) not null unique,
-    email varchar(80) not null unique,
-    senha varchar(80) not null,
-    telefone varchar(80) not null unique
+CREATE TABLE IF NOT EXISTS terreno(
+    codterreno INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(80) NOT NULL,
+    descricao TEXT NOT NULL,
+    localizacao VARCHAR(80) NOT NULL,
+    extensao VARCHAR(10) NOT NULL,
+    preco VARCHAR(80) NOT NULL,
+    foto VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS casa(
+    codcasa INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(80) NOT NULL,
+    descricao TEXT NOT NULL,
+    localizacao VARCHAR(80) NOT NULL,
+    tamanho VARCHAR(10) NOT NULL,
+    quartos INT NOT NULL,
+    banheiros INT NOT NULL,
+    estacionamento INT NOT NULL,
+    pet BOOLEAN NOT NULL,
+    preco VARCHAR(80) NOT NULL,
+    foto VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS conta(
+    codconta INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(80) NOT NULL UNIQUE,
+    email VARCHAR(80) NOT NULL UNIQUE,
+    senha VARCHAR(80) NOT NULL,
+    telefone VARCHAR(80) NOT NULL UNIQUE
 );
